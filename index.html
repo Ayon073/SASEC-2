@@ -4,26 +4,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2f4ef">
+  <meta name="theme-color" content="#f4f0eb">
   <meta name="description" content="Niamul's portfolio of infrastructure projects, engineering, and delivery.">
   <title>Niamul | Infrastructure Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
-      --paper: #f2f4ef;
+      --paper: #f4f0eb;
       --ink: #17231f;
-      --muted: #66726d;
-      --line: #d4dbd5;
-      --green: #126b56;
-      --lime: #dafa70;
-      --blue: #dbeaf0;
+      --muted: #6c706c;
+      --line: #ded7d0;
+      --coral: #c45143;
+      --amber: #f1bf62;
+      --blue: #e1eced;
       --mono: "IBM Plex Mono", monospace;
       --sans: "DM Sans", sans-serif;
+      --display: "Space Grotesk", sans-serif;
     }
 
     * {
@@ -88,7 +89,7 @@
       place-items: center;
       width: 34px;
       height: 34px;
-      background: var(--green);
+      background: var(--coral);
       color: white;
       font-size: 17px;
     }
@@ -111,7 +112,7 @@
     }
 
     .nav-links a:hover {
-      color: var(--green);
+      color: var(--coral);
     }
 
     .nav-links .contact-link {
@@ -130,28 +131,28 @@
     }
 
     .hero {
-      min-height: 570px;
-      padding: 88px 0 64px;
+      width: 100%;
+      min-height: 620px;
+      margin: 0;
+      padding: 100px max(32px, calc((100% - 1180px) / 2)) 72px;
       display: grid;
       grid-template-columns: 1.35fr .65fr;
       gap: 60px;
       align-items: end;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
+      background: var(--ink);
+      color: #f6f7f2;
     }
 
-    .hero::after {
+    .hero::before {
       content: "";
       position: absolute;
-      z-index: 0;
-      width: 420px;
-      height: 420px;
-      border: 1px solid #d4dbd5;
-      border-radius: 50%;
-      right: -125px;
-      top: -175px;
-      box-shadow: 0 0 0 35px var(--paper), 0 0 0 36px #d4dbd5, 0 0 0 72px var(--paper), 0 0 0 73px #d4dbd5;
-      opacity: .7;
+      z-index: -1;
+      inset: 0;
+      background: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2200&q=90") center 48% / cover no-repeat;
+      filter: brightness(.34) saturate(.72);
       pointer-events: none;
     }
 
@@ -162,7 +163,7 @@
     }
 
     .hero .eyebrow {
-      color: var(--green);
+      color: var(--amber);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -172,25 +173,26 @@
       content: "";
       width: 26px;
       height: 2px;
-      background: var(--green);
+      background: var(--amber);
     }
 
     h1 {
-      max-width: 780px;
+      max-width: 850px;
       margin: 24px 0 22px;
-      font-size: 88px;
+      font-family: var(--display);
+      font-size: 86px;
       line-height: .98;
       letter-spacing: 0;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     h1 span {
-      color: var(--green);
+      color: var(--amber);
     }
 
     .hero-intro {
       max-width: 590px;
-      color: #4f5b56;
+      color: #e0e7e2;
       font-size: 19px;
       line-height: 1.6;
       margin: 0;
@@ -222,17 +224,19 @@
     }
 
     .button-primary {
-      color: white;
-      background: var(--ink);
+      color: var(--ink);
+      background: var(--amber);
+      border-color: var(--amber);
     }
 
     .button-primary:hover {
-      background: var(--green);
-      border-color: var(--green);
+      background: white;
+      border-color: white;
     }
 
     .button-secondary:hover {
-      background: var(--lime);
+      background: var(--amber);
+      color: var(--ink);
     }
 
     .arrow {
@@ -245,23 +249,23 @@
       max-width: 270px;
       margin-left: auto;
       padding: 0 0 5px 20px;
-      border-left: 2px solid var(--green);
-      color: var(--muted);
+      border-left: 2px solid var(--amber);
+      color: #e0e7e2;
       font-size: 14px;
       line-height: 1.65;
     }
 
     .hero-aside strong {
       display: block;
-      color: var(--ink);
+      color: white;
       font-size: 15px;
       margin-bottom: 6px;
     }
 
     .project-band {
-      background: var(--ink);
-      color: #f6f7f2;
-      padding: 28px 0;
+      background: var(--amber);
+      color: var(--ink);
+      padding: 24px 0;
     }
 
     .project-band-inner {
@@ -272,7 +276,7 @@
     }
 
     .project-band .eyebrow {
-      color: var(--lime);
+      color: var(--coral);
     }
 
     .band-title {
@@ -305,14 +309,15 @@
     }
 
     .section-heading .eyebrow {
-      color: var(--green);
+      color: var(--coral);
       margin: 8px 0 0;
     }
 
     h2 {
+      font-family: var(--display);
       font-size: 48px;
       line-height: 1.08;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0;
       margin: 0;
     }
@@ -366,14 +371,15 @@
     }
 
     .case-copy .eyebrow {
-      color: var(--green);
+      color: var(--coral);
     }
 
     h3 {
+      font-family: var(--display);
       font-size: 32px;
       line-height: 1.16;
       margin: 16px 0;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .case-copy p {
@@ -395,7 +401,7 @@
     }
 
     .text-link:hover {
-      color: var(--green);
+      color: var(--coral);
     }
 
     .facts {
@@ -423,7 +429,7 @@
     }
 
     .approach {
-      background: var(--lime);
+      background: #f2dfd2;
       padding: 78px 0;
     }
 
@@ -488,7 +494,7 @@
     }
 
     .contact-panel .eyebrow {
-      color: var(--green);
+      color: var(--coral);
     }
 
     .contact-panel h2 {
@@ -522,7 +528,7 @@
     }
 
     footer a:hover {
-      color: var(--green);
+      color: var(--coral);
     }
 
     @media (max-width: 800px) {
@@ -530,22 +536,20 @@
         width: min(100% - 40px, 620px);
       }
 
-      .hero {
-        min-height: unset;
-        padding: 78px 0 60px;
-        grid-template-columns: 1fr;
-        gap: 38px;
+      .hero.wrap {
+        width: 100%;
+        margin: 0;
       }
 
-      .hero::after {
-        width: 260px;
-        height: 260px;
-        right: -130px;
-        top: -75px;
+      .hero {
+        min-height: 590px;
+        padding: 78px max(20px, calc((100% - 620px) / 2)) 58px;
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
 
       h1 {
-        font-size: 64px;
+        font-size: 68px;
       }
 
       .hero-aside {
@@ -591,6 +595,11 @@
     @media (max-width: 560px) {
       .wrap {
         width: calc(100% - 36px);
+      }
+
+      .hero.wrap {
+        width: 100%;
+        margin: 0;
       }
 
       .topbar {
@@ -643,11 +652,12 @@
       }
 
       .hero {
-        padding: 66px 0 48px;
+        min-height: 600px;
+        padding: 66px 18px 48px;
       }
 
       h1 {
-        font-size: 50px;
+        font-size: 52px;
       }
 
       .hero-intro {
