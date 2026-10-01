@@ -497,7 +497,7 @@
       border-top: 1px solid #a8bf56;
     }
 
-    .approach-list li {
+    .approach-list>li {
       display: flex;
       justify-content: space-between;
       gap: 16px;
@@ -508,6 +508,62 @@
 
     .approach-list span:last-child {
       font: 11px var(--mono);
+    }
+
+    .structure-list>li {
+      display: block;
+      padding: 0;
+    }
+
+    .structure-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      font-size: 14px;
+    }
+
+    .structure-details>summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 0 13px;
+      color: #596761;
+      font: 10px var(--mono);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .structure-details>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .structure-details>summary::after {
+      content: "+";
+      color: var(--coral);
+      font-size: 14px;
+    }
+
+    .structure-details[open]>summary::after {
+      content: "-";
+    }
+
+    .structure-packages {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0 18px;
+      margin: 0;
+      padding: 0 0 14px;
+      list-style: none;
+    }
+
+    .approach-list .structure-packages li {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(56, 80, 66, .2);
+      font-size: 11px;
     }
 
     .approach-subheading {
@@ -759,6 +815,10 @@
         font-size: 16px;
       }
 
+      .structure-packages {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .contact {
         padding: 64px 0 48px;
       }
@@ -895,12 +955,87 @@
             <li><span>Highway improvement</span><span>190.4 KM</span></li>
           </ul>
           <p class="approach-subheading">Major structure</p>
-          <ul class="approach-list" aria-label="Major structures">
-            <li><span>Underpasses</span><span>44</span></li>
-            <li><span>Bridges</span><span>25</span></li>
-            <li><span>Culverts</span><span>179</span></li>
-            <li><span>Flyovers</span><span>03</span></li>
-            <li><span>Railway overpasses</span><span>02</span></li>
+          <ul class="approach-list structure-list" aria-label="Major structures">
+            <li>
+              <div class="structure-line"><span>Underpasses</span><span>44</span></div>
+              <details class="structure-details">
+                <summary>Breakdown by work package</summary>
+                <ul class="structure-packages" aria-label="Underpasses by work package">
+                  <li><span>WP-05</span><span>2 nos.</span></li>
+                  <li><span>WP-06</span><span>5 nos.</span></li>
+                  <li><span>WP-07</span><span>7 nos.</span></li>
+                  <li><span>WP-08</span><span>5 nos.</span></li>
+                  <li><span>WP-09</span><span>7 nos.</span></li>
+                  <li><span>WP-10</span><span>7 nos.</span></li>
+                  <li><span>WP-11</span><span>6 nos.</span></li>
+                  <li><span>WP-12</span><span>5 nos.</span></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <div class="structure-line"><span>Bridges</span><span>25</span></div>
+              <details class="structure-details">
+                <summary>Breakdown by work package</summary>
+                <ul class="structure-packages" aria-label="Bridges by work package">
+                  <li><span>WP-05</span><span>8 nos.</span></li>
+                  <li><span>WP-06</span><span>7 nos.</span></li>
+                  <li><span>WP-07</span><span>3 nos.</span></li>
+                  <li><span>WP-08</span><span>1 nos.</span></li>
+                  <li><span>WP-09</span><span>1 nos.</span></li>
+                  <li><span>WP-10</span><span>3 nos.</span></li>
+                  <li><span>WP-11</span><span>0 nos.</span></li>
+                  <li><span>WP-12</span><span>2 nos.</span></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <div class="structure-line"><span>Culverts</span><span>179</span></div>
+              <details class="structure-details">
+                <summary>Breakdown by work package</summary>
+                <ul class="structure-packages" aria-label="Culverts by work package">
+                  <li><span>WP-05</span><span>10 nos.</span></li>
+                  <li><span>WP-06</span><span>17 nos.</span></li>
+                  <li><span>WP-07</span><span>34 nos.</span></li>
+                  <li><span>WP-08</span><span>12 nos.</span></li>
+                  <li><span>WP-09</span><span>27 nos.</span></li>
+                  <li><span>WP-10</span><span>31 nos.</span></li>
+                  <li><span>WP-11</span><span>30 nos.</span></li>
+                  <li><span>WP-12</span><span>18 nos.</span></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <div class="structure-line"><span>Flyovers</span><span>04</span></div>
+              <details class="structure-details">
+                <summary>Breakdown by work package</summary>
+                <ul class="structure-packages" aria-label="Flyovers by work package">
+                  <li><span>WP-05</span><span>1 nos.</span></li>
+                  <li><span>WP-06</span><span>1 nos.</span></li>
+                  <li><span>WP-07</span><span>0 nos.</span></li>
+                  <li><span>WP-08</span><span>0 nos.</span></li>
+                  <li><span>WP-09</span><span>1 nos.</span></li>
+                  <li><span>WP-10</span><span>1 nos.</span></li>
+                  <li><span>WP-11</span><span>0 nos.</span></li>
+                  <li><span>WP-12</span><span>0 nos.</span></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <div class="structure-line"><span>Railway overpasses</span><span>02</span></div>
+              <details class="structure-details">
+                <summary>Breakdown by work package</summary>
+                <ul class="structure-packages" aria-label="Railway overpasses by work package">
+                  <li><span>WP-05</span><span>0 nos.</span></li>
+                  <li><span>WP-06</span><span>1 nos.</span></li>
+                  <li><span>WP-07</span><span>0 nos.</span></li>
+                  <li><span>WP-08</span><span>0 nos.</span></li>
+                  <li><span>WP-09</span><span>1 nos.</span></li>
+                  <li><span>WP-10</span><span>0 nos.</span></li>
+                  <li><span>WP-11</span><span>0 nos.</span></li>
+                  <li><span>WP-12</span><span>0 nos.</span></li>
+                </ul>
+              </details>
+            </li>
           </ul>
         </div>
       </div>
