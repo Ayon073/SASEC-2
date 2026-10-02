@@ -523,35 +523,68 @@
       font-size: 14px;
     }
 
+    .structure-details {
+      margin-top: 0;
+    }
+
     .structure-details>summary {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 0 0 13px;
-      color: #596761;
-      font: 10px var(--mono);
+      padding: 10px 12px 12px;
+      margin: 0 0 12px;
+      border: 1px solid rgba(56, 80, 66, 0.25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.32);
+      color: #385042;
+      font: 700 10px var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       cursor: pointer;
       list-style: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .structure-details>summary:hover,
+    .structure-details>summary:focus-visible {
+      background: rgba(255, 255, 255, 0.52);
+      border-color: rgba(56, 80, 66, 0.45);
+      transform: translateY(-1px);
     }
 
     .structure-details>summary::-webkit-details-marker {
       display: none;
     }
 
-    .structure-details>summary::after {
-      content: "+";
-      color: var(--coral);
-      font-size: 14px;
+    .structure-details>summary span:first-child {
+      flex: 1;
     }
 
-    .structure-details[open]>summary::after {
-      content: "-";
+    .summary-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #fff;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .structure-details[open] .summary-indicator {
+      transform: rotate(45deg);
     }
 
     .structure-packages {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0 18px;
+      grid-template-columns: 1fr;
+      gap: 8px;
       margin: 0;
       padding: 0 0 14px;
       list-style: none;
@@ -560,10 +593,26 @@
     .approach-list .structure-packages li {
       display: flex;
       justify-content: space-between;
-      gap: 8px;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(56, 80, 66, .2);
+      align-items: center;
+      gap: 14px;
+      padding: 8px 10px;
+      border: 1px solid rgba(56, 80, 66, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.16);
       font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .approach-list .structure-packages li span:first-child {
+      color: #385042;
+      font-weight: 600;
+    }
+
+    .approach-list .structure-packages li span:last-child {
+      color: #596761;
+      font: 700 10px var(--mono);
+      letter-spacing: 0.04em;
+      text-transform: none;
     }
 
     .approach-subheading {
@@ -959,7 +1008,7 @@
             <li>
               <div class="structure-line"><span>Underpasses</span><span>44</span></div>
               <details class="structure-details">
-                <summary>Breakdown by work package</summary>
+                <summary><span>View work package breakdown</span><span class="summary-indicator" aria-hidden="true">+</span></summary>
                 <ul class="structure-packages" aria-label="Underpasses by work package">
                   <li><span>WP-05</span><span>2 nos.</span></li>
                   <li><span>WP-06</span><span>5 nos.</span></li>
@@ -975,7 +1024,7 @@
             <li>
               <div class="structure-line"><span>Bridges</span><span>25</span></div>
               <details class="structure-details">
-                <summary>Breakdown by work package</summary>
+                <summary><span>View work package breakdown</span><span class="summary-indicator" aria-hidden="true">+</span></summary>
                 <ul class="structure-packages" aria-label="Bridges by work package">
                   <li><span>WP-05</span><span>8 nos.</span></li>
                   <li><span>WP-06</span><span>7 nos.</span></li>
@@ -991,7 +1040,7 @@
             <li>
               <div class="structure-line"><span>Culverts</span><span>179</span></div>
               <details class="structure-details">
-                <summary>Breakdown by work package</summary>
+                <summary><span>View work package breakdown</span><span class="summary-indicator" aria-hidden="true">+</span></summary>
                 <ul class="structure-packages" aria-label="Culverts by work package">
                   <li><span>WP-05</span><span>10 nos.</span></li>
                   <li><span>WP-06</span><span>17 nos.</span></li>
@@ -1007,7 +1056,7 @@
             <li>
               <div class="structure-line"><span>Flyovers</span><span>04</span></div>
               <details class="structure-details">
-                <summary>Breakdown by work package</summary>
+                <summary><span>View work package breakdown</span><span class="summary-indicator" aria-hidden="true">+</span></summary>
                 <ul class="structure-packages" aria-label="Flyovers by work package">
                   <li><span>WP-05</span><span>1 nos.</span></li>
                   <li><span>WP-06</span><span>1 nos.</span></li>
@@ -1023,7 +1072,7 @@
             <li>
               <div class="structure-line"><span>Railway overpasses</span><span>02</span></div>
               <details class="structure-details">
-                <summary>Breakdown by work package</summary>
+                <summary><span>View work package breakdown</span><span class="summary-indicator" aria-hidden="true">+</span></summary>
                 <ul class="structure-packages" aria-label="Railway overpasses by work package">
                   <li><span>WP-05</span><span>0 nos.</span></li>
                   <li><span>WP-06</span><span>1 nos.</span></li>
